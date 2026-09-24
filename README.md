@@ -6,8 +6,6 @@ WebSentinel is a Python-based web application security assessment platform desig
 
 It crawls a target application, analyzes HTTP responses for common security weaknesses, optionally integrates with OWASP ZAP for active security testing, normalizes and deduplicates findings, stores scan results in SQLite, and provides CLI and Flask-based dashboard interfaces.
 
-> **⚠️ Authorized testing only.**
-> WebSentinel is intended for applications you own or have explicit written permission to test. Use it with local security-training targets or other explicitly authorized environments. Do not scan public websites without authorization.
 
 ---
 
@@ -539,6 +537,9 @@ Potential future improvements include:
 ---
 
 ## Disclaimer
+
+> **⚠️ Authorized testing only.**
+> WebSentinel is intended for applications you own or have explicit written permission to test. Use it with local security-training targets or other explicitly authorized environments. Do not scan public websites without authorization.
 
 WebSentinel is an educational and defensive security assessment project.
 
