@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSentinel Dashboard</title>
+    <style>
+        :root { --bg: #f8f9fa; --primary: #2c3e50; --secondary: #18bc9c; --danger: #e74c3c; --warning: #f39c12; --info: #3498db; --text: #333; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: var(--bg); color: var(--text); margin: 0; padding: 0; }
+        .navbar { background-color: var(--primary); padding: 1rem 2rem; color: white; display: flex; justify-content: space-between; align-items: center; }
+        .navbar a { color: white; text-decoration: none; font-weight: bold; font-size: 1.2rem; }
+        .container { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+        .card { background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 2rem; margin-bottom: 2rem; }
+        .btn { display: inline-block; padding: 0.5rem 1rem; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; text-decoration: none; text-align: center; }
+        .btn-primary { background-color: var(--secondary); color: white; }
+        .btn-outline { background-color: transparent; border: 1px solid var(--primary); color: var(--primary); }
+        .form-group { margin-bottom: 1rem; }
+        .form-control { width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { text-align: left; padding: 1rem; border-bottom: 1px solid #eee; }
+        th { color: #666; font-weight: 600; }
+        .badge { padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: bold; color: white; }
+        .bg-critical { background-color: var(--danger); }
+        .bg-high { background-color: #d35400; }
+        .bg-medium { background-color: var(--warning); }
+        .bg-low { background-color: #f1c40f; color: #333; }
+        .bg-info { background-color: var(--info); }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/">WebSentinel Platform</a>
+    </nav>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h2>Scan Results: {{ scan.target }}</h2>
+        <div>
+            <a href="{{ url_for('web.download_report', scan_id=scan.scan_id, format='html') }}" class="btn btn-outline">HTML Report</a>
+            <a href="{{ url_for('web.download_report', scan_id=scan.scan_id, format='json') }}" class="btn btn-outline">JSON Report</a>
+        </div>
+    </div>
+    
+    <div style="display: flex; gap: 2rem; margin-top: 1rem;">
+        <div>
+            <p><strong>Status:</strong> {{ scan.status }}</p>
+            <p><strong>Started:</strong> {{ scan.started_at | ist_time }}</p>
+        </div>
+        <div>
+            <p><strong>Pages:</strong> {{ scan.pages_discovered }}</p>
+            <p><strong>Total Findings:</strong> {{ stats.total_findings }}</p>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <h3>Findings</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Severity</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>URL</th>
+                <th>Source</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for f in findings %}
+            <tr>
+                <td><span class="badge bg-{{ f.severity|lower }}">{{ f.severity }}</span></td>
+                <td>{{ f.title }}</td>
+                <td>{{ f.category }}</td>
+                <td style="max-width: 300px; word-wrap: break-word;">{{ f.url }}</td>
+                <td>{{ f.scanner_source }}</td>
+            </tr>
+            {% else %}
+            <tr><td colspan="5">No findings reported.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
